@@ -1,5 +1,5 @@
 bip_pelvis:1
-weapon_bone:1
+weapon_bone:0
 weapon_bone_1:0
 weapon_bone_2:0
 weapon_bone_3:0
