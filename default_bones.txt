@@ -1,0 +1,7 @@
+bip_pelvis
+weapon_bone
+weapon_bone_1
+weapon_bone_2
+weapon_bone_3
+weapon_bone_4
+weapon_bone_L
