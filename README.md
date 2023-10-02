@@ -2,6 +2,12 @@
 A script that modifies smd animation files to work with the proportion trick.
 https://steamcommunity.com/sharedfiles/filedetails/?id=887935033 
 
+<img src="A.gif" width="250" height="250"/>
+<img src="B.gif" width="250" height="250"/>
+
+
+
+
 It's usually more noticeable when the resulting custom model is smaller than the original models, but simply put a small character tends to bounce a lot and end up looking floaty or even worse just clipping through the ground or floating.
 
 # How to use.

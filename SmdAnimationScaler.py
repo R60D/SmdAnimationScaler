@@ -98,10 +98,11 @@ def run_script():
             if len(l) == 7:
                 l[1] *= multiplier
                 l[2] *= multiplier
+                l[3] *= multiplier
                 # check if the bone name is in the default bones dictionary and has a flag of 1
                 if boneIndexes[round(l[0])] in defaultBones and defaultBones[boneIndexes[round(l[0])]] == 1:
                     # apply the add to l[3]
-                    l[3] = l[3] * multiplier + add
+                    l[3] += add
             
             new_lines.append(format(l[0],'.0f')+" "+" ".join([format(x,'.6f') for x in l[1:7]]))
                 
