@@ -26,10 +26,10 @@ def read_bone_indexes(filename):
     # return the dictionary
     return bone_indexes
 
-# create a function to read the default bone names from a file
+# create a function to read the default bone names and flags from a file
 def read_default_bones(filename):
-    # create an empty list to store the default bone names
-    default_bones = []
+    # create an empty dictionary to store the default bone names and flags
+    default_bones = {}
     # get the absolute path of the filename
     filename = os.path.join(os.path.dirname(os.path.realpath(__file__)), filename)
     # open the file in read mode
@@ -38,17 +38,21 @@ def read_default_bones(filename):
         for line in file:
             # strip the newline character from the line
             line = line.strip()
-            # check if the line is not empty
-            if line:
-                # add the line to the list
-                default_bones.append(line)
-    # return the list
+            # check if the line is not empty and has a colon
+            if line and ':' in line:
+                # split the line by colon
+                name, flag = line.split(':')
+                # convert the flag to an integer (0 or 1)
+                flag = int(flag)
+                # add the name and flag to the dictionary
+                default_bones[name] = flag
+    # return the dictionary
     return default_bones
 
 # read the bone indexes and names from a file named bone_indexes.txt
 boneIndexes = read_bone_indexes("bone_indexes.txt")
 
-# read the default bone names from a file named default_bones.txt
+# read the default bone names and flags from a file named default_bones.txt
 defaultBones = read_default_bones("default_bones.txt")
 
 def run_script():
@@ -94,7 +98,10 @@ def run_script():
             if len(l) == 7:
                 l[1] *= multiplier
                 l[2] *= multiplier
-                l[3] = l[3] * multiplier + add
+                # check if the bone name is in the default bones dictionary and has a flag of 1
+                if boneIndexes[round(l[0])] in defaultBones and defaultBones[boneIndexes[round(l[0])]] == 1:
+                    # apply the add to l[3]
+                    l[3] = l[3] * multiplier + add
             
             new_lines.append(format(l[0],'.0f')+" "+" ".join([format(x,'.6f') for x in l[1:7]]))
                 
@@ -149,7 +156,7 @@ def toggle_checkbuttons():
 
 # create a variable to store the hidden state
 hidden = False
-
+toggle_checkbuttons()
 # create a toggle button to control the checkbuttons
 toggle_button = tk.Button(window, text="Advanced Parameters", command=toggle_checkbuttons)
 toggle_button.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
@@ -161,7 +168,5 @@ for bone in defaultBones:
         if boneIndexes[i] == bone:
             bone_vars[i].set(1)
             break
-
-toggle_checkbuttons()
 
 window.mainloop()

@@ -1,7 +1,7 @@
-bip_pelvis
-weapon_bone
-weapon_bone_1
-weapon_bone_2
-weapon_bone_3
-weapon_bone_4
-weapon_bone_L
+bip_pelvis:1
+weapon_bone:1
+weapon_bone_1:0
+weapon_bone_2:0
+weapon_bone_3:0
+weapon_bone_4:0
+weapon_bone_L:0
