@@ -23,4 +23,4 @@ It's usually enough just to scale the pelvis and weapon bones, as translations o
 You would also have to modify default_bones.txt as the bone names might be different now.(especially for the weapon bones)
 (The formatting is whitespace sensitive so make sure it looks like the provided default_bones.txt)
 Here is an image of where you can get the bone_indexes. It is just a random animation that the Base Character uses.
-<img src="C.png" width="250" height="250"/>
+<img src="C.png" width="250" height="1000"/>
